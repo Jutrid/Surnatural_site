@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <style>
+        #preloaded{
+            background: white url({% static 'img/load2.gif' %}) no-repeat;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            z-index: 100;
+            background-position: center;
+            background-size: 20%;
+        }
+    </style>
+    <div id="preloaded">
+    </div>
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <!-- <span class="fs-4"><a href="" class="fs-4" style="border: 1px solid black;"><img src="{% static 'img/logo.jpg' %}" alt="" width="200"></a></span> -->
+            <span class="fs-4"><div><img src="{% static 'img/logo.jpg' %}" alt="" width="200"></div></span>
+          </a>
+          {% block nav %}
+          {% endblock nav %}
+        </header>
+    </div>
+
+    {% block content %}
+    
+    {% endblock content %}
+    
+    <footer class="row" style="margin-top: 30px; padding: 20px; display: flex; justify-content: space-around;">
+        
+        <div class="col-md-3" style="padding: 20px;" id="contact">
+            <h3 style="text-align: center; color: white;">Contact</h3>
+            <ul style="list-style-type: none; margin-left: 25%; color: white;">
+                <li class="my-2 social"><img src="{% static 'img/whatsapp.svg' %}" alt="">   0728271</li>
+                <li class="my-2 social"><img src="{% static 'img/facebook.svg' %}" alt="">   JutridApp</li>
+                <li class="my-2 social"><img src="{% static 'img/instagram.svg' %}" alt="">   Jutrid</li>
+                <li class="my-2 social"><img src="{% static 'img/phone-fill.svg' %}" alt="">   081782892, 0992793928</li>
+            </ul>
+        </div>
+        <div class="col-md-3" style="padding: 20px; border-right: 1px solid rgb(255, 255, 255);">
+            <h3 style="text-align: center; color: white;">Lie Rapide</h3>
+            <ul style="margin-left: 28%; text-decoration: none; list-style-type: none;">
+                <li><a href="" class="h5">Accueil</a></li>
+                <li class="h5">Services</li>
+                <ul>
+                    {% block f_service %}{% endblock f_service %}
+                </ul>
+            </ul>
+        </div>
+        <div class="col-md-3" style="padding: 20px;">
+            <h3 style="text-align: center; color: white;" id="propos">A propos</h3>
+            <p style="text-align: center; color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quaerat dicta dolore quo soluta sunt! Reprehenderit corporis voluptas facilis ullam in hic, id voluptatem sapiente excepturi ducimus non placeat consequuntur?</p>
+        </div>
+        <div class="col-md-3" style="padding: 20px;" >
+            <h3 style="text-align: center; color: white;">Adresse</h3>
+            <p style="text-align: center; color: white;">Kisangani. Boulevard du 30 juin N4. Commune Makiso</p>
+        </div>
+        <div class="col-12" style="display: flex; justify-content: right;">
+            <div>
+                <img class="logo_bottom" src="{% static 'img/logo.jpg' %}" width='170' style="border-radius: 10px;" alt="">
+            </div>
+        </div>
+    </footer>
+    <div class="container">
+        <div class="col-12" style="margin-top: 20px;">
+            <h6 style="text-align: center; margin: 10px;">All Right Reserved Surnatural. Copyriright &#xa9 2024</h6>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+    <script>
+        var loader = document.getElementById('preloaded');
+
+        window.addEventListener('load', function(){
+            loader.style.display = 'none';
+        })
+    </script>
+</body>
+</html>

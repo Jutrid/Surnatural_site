@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block nav %}
+<ul class="nav nav-pills">
+    <li class="nav-item"><a href="{% url "home" %}" class="nav-link" aria-current="page">Accueil</a></li>
+    <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+        <ul class="dropdown-menu">
+        {% for datum in data %}
+            <li><a class="dropdown-item" href="/service{{datum.id}}">{{datum.titre}}</a></li>
+        {% endfor %}
+
+    </ul>
+    </li>
+    <li class="nav-item"><a href="{% url "work" %}" class="nav-link active">Nos Oeuvres</a></li>
+    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+    <li class="nav-item"><a href="{% url "login" %}" class="nav-link">Connexion</a></li>
+    {% if user.is_superuser %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url "dashboard" %}">Administration</a>
+        </li>
+    {% endif %}
+    <!-- <li class="nav-item"><a href="#" class="nav-link">About</a></li> -->
+</ul>
+{% endblock nav %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 justify-content-center">
+      <div class="pub">
+        <img src="/media/{{p1.img}}" alt="" style="max-width: 400px; width: 90%; min-height: 500px; max-height: 500px; border-radius: 10px;">
+      </div>
+      <div style="margin: 10px 0;">
+        {% if l1.like == True %}
+          <a href="/like{{p1.id}}"><img src="{% static 'img/amour.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n1}}</span>
+        {% else %}
+          <a href="/like{{p1.id}}"><img src="{% static 'img/coeur.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n1}}</span>
+        {% endif %}
+        
+        <a href="/Commentaire{{p1.id}}" style="text-decoration: none; font-size: 1.2rem; color: black;"><img src="{% static 'img/commentaire.png' %}" alt="" style="width: 7%;"> Commetaires</a>
+      </div>
+    </div>
+    
+    <div class="col-md-4 justify-content-center">
+      <div class="pub">
+        <img src="/media/{{p2.img}}" alt="" style="max-width: 400px; width: 90%; min-height: 500px; max-height: 500px; border-radius: 10px;">
+      </div>
+      <div style="margin: 10px 0;">
+        {% if l2.like == True %}
+          <a href="/like{{p2.id}}"><img src="{% static 'img/amour.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n2}}</span>
+        {% else %}
+        <a href="/like{{p2.id}}"><img src="{% static 'img/coeur.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n2}}</span>
+        {% endif %}
+        
+        <a href="/Commentaire{{p2.id}}" style="text-decoration: none; font-size: 1.2rem; color: black;"><img src="{% static 'img/commentaire.png' %}" alt="" style="width: 7%;"> Commetaires</a>
+      </div>
+    </div>
+
+    <div class="col-md-4 justify-content-center">
+      <div class="pub">
+        <img src="/media/{{p3.img}}" alt="" style="max-width: 400px; width: 90%; min-height: 500px; max-height: 500px; border-radius: 10px;">
+      </div>
+      <div style="margin: 10px 0;">
+        {% if l3.like == True %}
+          <a href="/like{{p3.id}}"><img src="{% static 'img/amour.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n3}}</span>
+        {% else %}       
+          <a href="/like{{p3.id}}"><img src="{% static 'img/coeur.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n3}}</span>
+        {% endif %}
+
+        <a href="/Commentaire{{p3.id}}" style="text-decoration: none; font-size: 1.2rem; color: black;"><img src="{% static 'img/commentaire.png' %}" alt="" style="width: 7%;"> Commetaires</a>
+      </div>
+    </div>
+
+    <div class="col-md-4 justify-content-center">
+      <div class="pub">
+        <img src="/media/{{p4.img}}" alt="" style="max-width: 400px; width: 90%; min-height: 500px; max-height: 500px; border-radius: 10px;">
+      </div>
+      <div style="margin: 10px 0;">
+        {% if l4.like == True %}
+          <a href="/like{{p4.id}}"><img src="{% static 'img/amour.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n4}}</span>
+        {% else %}
+          <a href="/like{{p4.id}}"><img src="{% static 'img/coeur.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n4}}</span>
+        {% endif %}
+
+        <a href="/Commentaire{{p4.id}}" style="text-decoration: none; font-size: 1.2rem; color: black;"><img src="{% static 'img/commentaire.png' %}" alt="" style="width: 7%;"> Commetaires</a>
+      </div>
+    </div>
+
+    <div class="col-md-4 justify-content-center">
+      <div class="pub">
+        <img src="/media/{{p5.img}}" alt="" style="max-width: 400px; width: 90%; min-height: 500px; max-height: 500px; border-radius: 10px;">
+      </div>
+      <div style="margin: 10px 0;">
+        {% if l5.like == True %}
+          <a href="/like{{p5.id}}"><img src="{% static 'img/amour.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n5}}</span>
+        {% else %}
+          <a href="/like{{p5.id}}"><img src="{% static 'img/coeur.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n5}}</span>
+        {% endif %}
+
+        <a href="/Commentaire{{p5.id}}" style="text-decoration: none; font-size: 1.2rem; color: black;"><img src="{% static 'img/commentaire.png' %}" alt="" style="width: 7%;"> Commetaires</a>
+      </div>
+    </div>
+
+    <div class="col-md-4 justify-content-center">
+      <div class="pub">
+        <img src="/media/{{p6.img}}" alt="" style="max-width: 400px; width: 90%; min-height: 500px; max-height: 500px; border-radius: 10px;">
+      </div>
+      <div style="margin: 10px 0;">
+        {% if l6.like == True %}
+          <a href="/like{{p6.id}}"><img src="{% static 'img/amour.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n6}}</span>
+        {% else %}
+          <a href="/like{{p6.id}}"><img src="{% static 'img/coeur.png' %}" alt="" style="width: 7%;"></a><span style="margin-right: 10%;">{{n6}}</span>
+        {% endif %}
+
+        <a href="/Commentaire{{p6.id}}" style="text-decoration: none; font-size: 1.2rem; color: black;"><img src="{% static 'img/commentaire.png' %}" alt="" style="width: 7%;"> Commetaires</a>
+      </div>
+    </div>
+
+    
+  </div>
+
+</div>
+{% endblock content %}
+
+{% block f_service %}
+    {% for datum in data %}
+        <li><a href="/service{{datum.id}}">{{datum.titre}}</a></li>
+    {% endfor %}
+{% endblock f_service %}

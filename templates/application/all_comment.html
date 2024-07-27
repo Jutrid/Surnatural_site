@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Tous les commentaires</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 mx-auto my-4 text-center">
+                <h1>Nos Commentaires</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for comm in comms %}
+                <div class="col-md-7 mx-auto" style="padding: 20px; border: 1px solid gray; border-radius: 5px; margin: 20px; display: flex; align-items: center; justify-content: space-around;">
+                    <div style="border-right: 1px solid gray; padding-right: 20px; width: 40%;">
+                        <div style='width: min-content; margin: 0 auto;'>
+                            <img src="{% static 'img/user.png' %}" width='100' alt="">
+                        </div>
+                        <h3 style="text-align: center; text-decoration: underline; font-weight: bold; color: blue;">{{comm.nom_complet}}</h3>
+                        <h4 style="text-align: center;">{{comm.email}}</h4>
+                    </div>
+                    <div style="width: 60%;">
+                        <p style="color: gray; margin-left: 10%;">{{comm.commentaire}}</p>
+                        <p style="text-align: right;">{{comm.date}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

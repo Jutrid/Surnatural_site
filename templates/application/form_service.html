@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+    <div class='col-4 mx-auto'>
+        <div class="login">
+
+            <form action="/private_page/dashboard/gestion_service/ajout" class="need-validation" enctype="multipart/form-data" method='post'>
+            {% csrf_token %}
+            <div class="form-group was-validated">
+                <label for="text" class="form-label">Designation</label>
+                <input type="text" class="form-control" id="text" required name='designation'>
+                <div class="invalid-feedback">
+                    Inserez une Designation
+                </div>
+            </div>
+            <div class="form-group was-validated">
+                <label for="password" class="form-label">Description</label>
+                <textarea name="description" class="form-control" id=""></textarea>
+            </div>
+
+            <div class="form-group was-validated">
+                <label for="password" class="form-label">Logo</label>
+                <input type="file" class="form-control" name='logo'>
+            </div>
+            <div class="form-group was-validated">
+                <label for="password" class="form-label">Image</label>
+                <input type="file" class="form-control" name='img'>
+            </div>
+
+            <input class="btn btn-succes w-100" type="submit" value="Se Connecter">
+            </form>
+            {% for message in messages %}
+                <p class="info">{{message}}</p>
+            {% endfor %}
+        </div>
+        <p style="font-size: 1.3rem; text-align: center;"></a></p>
+    </div>
+
+    <script>
+        btn_lg = document.querySelector('.appear');
+        login = document.querySelector('.login');
+
+        btn_lg.addEventListener('click', ()=> {
+            login.classList.toggle('active')
+        });
+
+    </script>
+</body>
+</html>

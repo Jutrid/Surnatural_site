@@ -1,0 +1,129 @@
+header{
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+:root{
+    --main_color:rgb(126, 19, 69);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header div img{
+    width: 200px;
+    margin-top: 10px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+header div img:hover{
+    transform: translateX(-10px);
+}
+
+header nav{
+    display: flex;
+}
+
+header nav h3{
+    margin: 20px;
+    font-size: 120%;
+    transition: 0.3s;
+}
+
+header nav h3:hover{
+    transform: translateY(-5px);
+}
+
+header nav a{
+    text-decoration: none;
+    color: rgb(221, 49, 129);
+}
+
+footer{
+    background-color: rgb(221, 49, 129);
+}
+
+footer h3{
+    text-decoration: underline;
+}
+
+footer li a{
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer li a:hover{
+    text-decoration: underline;
+}
+
+.active{
+    background-color: rgb(221, 49, 129);
+}
+
+.social{
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.social:hover{
+    transform: translateX(5px);
+}
+
+.logo_bottom{
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.logo_bottom:hover{
+    transform: translateX(-10px);
+}
+
+
+
+
+.login {
+    height: min-content;
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--main_color);
+    transform: scale(1);
+    margin: 50px auto;
+}
+
+
+.login h1{
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.login form{
+    font-size: 20px;
+}
+
+.login form .form-group {
+    margin-bottom: 12px;
+}
+
+.login form input[type='submit'] {
+    font-size: 20px;
+    margin-top: 15px;
+    background-color: blanchedalmond;
+}
+
+
+label{
+    color: white;
+    font-size: 1.2rem;
+}
+
+.info {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: -5px;
+}

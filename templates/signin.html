@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 my-3">
+                <img src="{% static 'img/logo.jpg' %}" width="200" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-3 col-sm-9 mx-auto">
+        <div class="login">
+            <form action="/signin/" class="need-validation" method='post'>
+                {% csrf_token %}
+                <div class="form-group was-validated">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" required name='username'>
+                </div>
+                <div class="form-group was-validated">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" required name='email'>
+                </div>
+                <div class="form-group was-validated">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="password" required name='password'>
+                </div>
+                <div class="form-group was-validated">
+                    <label for="password1" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="password1" required name='password1'>
+                </div>
+    
+                <input class="btn btn-succes w-100" type="submit" value="Créer">
+            </form>
+            {% for message in messages %}
+                <p class="info">{{message}}</p>
+            {% endfor %}
+            
+        </div>
+        <p style="font-size: 1.3rem; text-align: center;">Vous avez déjà un compte ? Veuillez vous connecter <a href="{% url "login" %}" style="color: rgb(126, 19, 69);">ici</a></p>
+    </div>
+    </div>
+
+    <script>
+        btn_lg = document.querySelector('.appear');
+        login = document.querySelector('.login');
+
+        btn_lg.addEventListener('click', ()=> {
+            login.classList.toggle('active')
+        });
+
+    </script>
+</body>
+</html>

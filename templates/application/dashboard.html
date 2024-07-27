@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row my-4  border-bottom border-danger text-center">
+            <div class="col-md-4">
+                <h1 style="color: rgb(126, 19, 69); font-size: 2.4rem;">Administration du site</h1>
+            </div>
+            <div class="col-md-8 text-right my-3">
+                <h5 style="color: rgb(126, 19, 69);">{{user.username}}</h5>
+                <h5 style="text-decoration: underline;">{{user.email}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xl-3 border rounded my-4 mx-3" style="background-color: rgba(128, 128, 128, 0.274);">
+                <a href="/private_page/dashboard/gestion_publication" style="text-decoration: none; color: rgb(126, 19, 69);">
+                    <div class="mx-auto" style="width: min-content;">
+                        <img src="{% static 'img/waw.png' %}" width="130" alt="">
+                    </div>
+                    <div>
+                        <h5 class="text-center">Gestion des publications</h5>
+                        <h4 class="text-center" style="color: rgb(8, 8, 88);">Nombre: {{publications}}</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 border rounded my-4 mx-3" style="background-color: rgba(128, 128, 128, 0.274);">
+                <a href="/private_page/dashboard/gestion_commentaire" style="text-decoration: none; color: rgb(126, 19, 69);">
+                    <div class="mx-auto" style="width: min-content;">
+                        <img src="{% static 'img/commentaire_d.png' %}" width="130" alt="">
+                    </div>
+                    <div>
+                        <h5 class="text-center">Gestion des Commentaires</h5>
+                        <h4 class="text-center" style="color: rgb(8, 8, 88);">Nombre: {{comm}}</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 border rounded my-4 mx-3" style="background-color: rgba(128, 128, 128, 0.274);">
+                <a href="/private_page/dashboard/gestion_pubs" style="text-decoration: none; color: rgb(126, 19, 69);">
+                    <div class="mx-auto" style="width: min-content;">
+                        <img src="{% static 'img/publicite.png' %}" alt="">
+                    </div>
+                    <div>
+                        <h5 class="text-center">Gestion des Publicités</h5>
+                        <h4 class="text-center" style="color: rgb(8, 8, 88);">Nombre: {{publicites}}</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 border rounded my-4 mx-3" style="background-color: rgba(128, 128, 128, 0.274);">
+                <a href="/private_page/dashboard/gestion_service" style="text-decoration: none; color: rgb(126, 19, 69);">
+                    <div class="mx-auto" style="width: min-content;">
+                        <img src="{% static 'img/service.png' %}" alt="">
+                    </div>
+                    <div>
+                        <h5 class="text-center">Gestion des Services</h5>
+                        <h4 class="text-center" style="color: rgb(8, 8, 88);">Nombre: {{services}}</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 border rounded my-4 mx-3" style="background-color: rgba(128, 128, 128, 0.274);">
+                <a href="/private_page/dashboard/gestion_users" style="text-decoration: none; color: rgb(126, 19, 69);">
+                    <div class="mx-auto" style="width: min-content;">
+                        <img src="{% static 'img/user_d.png' %}" alt="">
+                    </div>
+                    <div>
+                        <h5 class="text-center">Gestion des Utilisateurs</h5>
+                        <h4 class="text-center" style="color: rgb(8, 8, 88);">Nombre: {{users}}</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <a href="{% url "home" %}" class="btn btn-success">Page D'accueil</a>
+    </div>
+    <div class="container">
+        <div class="col-12" style="margin-top: 20px;">
+            <h6 style="text-align: center; margin: 10px;">All Right Reserved Surnatural. Copyriright &#xa9 2024</h6>
+        </div>
+    </div>
+    
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>

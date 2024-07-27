@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container">
+            <div class="row">
+                <div class="col-4 my-3">
+                    <img src="{% static 'img/logo.jpg' %}" width="200" alt="">
+                </div>
+            </div>
+    </div>
+    <div class='col-xl-3 col-md-3 col-sm-9 mx-auto'>
+        <div class="login">
+
+            <form action="/login/" class="need-validation" method='post'>
+            {% csrf_token %}
+            <div class="form-group was-validated">
+                <label for="text" class="form-label">Username</label>
+                <input type="text" class="form-control" id="text" required name='username'>
+                <div class="invalid-feedback">
+                    Inserez le nom d'utilisateur
+                </div>
+            </div>
+            <div class="form-group was-validated">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" required name='pwd'>
+                <div class="invalid-feedback">
+                    Inserez le mot de passe
+                </div>
+            </div>
+
+            <input class="btn btn-succes w-100" type="submit" value="Se Connecter">
+            </form>
+            {% for message in messages %}
+                <p class="info">{{message}}</p>
+            {% endfor %}
+        </div>
+        <p style="font-size: 1.3rem; text-align: center;">Vous n'avez pas de compte ? Créer un compte <a href="{% url "signin" %}" style="color: rgb(126, 19, 69);">ici</a></p>
+    </div>
+
+    <script>
+        btn_lg = document.querySelector('.appear');
+        login = document.querySelector('.login');
+
+        btn_lg.addEventListener('click', ()=> {
+            login.classList.toggle('active')
+        });
+
+    </script>
+</body>
+</html>
